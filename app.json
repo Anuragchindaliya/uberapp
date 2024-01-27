@@ -2,6 +2,7 @@
   "expo": {
     "name": "uberClone",
     "slug": "uberClone",
+    "description":"This is an uber clone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

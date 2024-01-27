@@ -3,6 +3,8 @@ import React from "react";
 import Anticons from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigation, useNav } from "../../navigation";
+import { useAppSelector } from "../app/hook";
+import { selectOrigin } from "../features/nav/navSlice";
 const data = [
   {
     id: "342",
@@ -16,9 +18,16 @@ const data = [
     image: "https://links.papareact.com/28w",
     screen: "EatsScreen",
   },
+  {
+    id: "344",
+    title: "Get Job",
+    image: "https://links.papareact.com/28w",
+    screen: "JobHomeScreen",
+  },
 ];
 const NavOptions = () => {
   const navigation = useNav();
+  const origin = useAppSelector(selectOrigin);
   return (
     <FlatList
       data={data}
@@ -31,7 +40,8 @@ const NavOptions = () => {
             onPress={() => {
               navigation.navigate(item.screen as any);
             }}
-            className="p-4 bg-gray-200 mr-2"
+            // disabled={!origin}
+            className={`p-4 bg-gray-200 mr-2 ${origin ? "" : "opacity-25"}`}
           >
             <View>
               <Image

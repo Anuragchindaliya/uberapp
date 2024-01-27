@@ -1,14 +1,12 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import React, { useEffect, useRef } from "react";
-import MapView, { MapViewProps, Marker } from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import { createStackNavigator } from "@react-navigation/stack";
 import NavigateCard from "../components/NavigateCard";
 import RideOptionsCard from "../features/RideOptionsCard/RideOptionsCard";
 import { useSelector } from "react-redux";
 import { selectDestination, selectOrigin } from "../features/nav/navSlice";
 import { NavigationProp } from "@react-navigation/native";
-import MapViewDirections from "react-native-maps-directions";
-import { MapViewNativeComponentType } from "react-native-maps/lib/MapViewNativeComponent";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNav } from "../../navigation";

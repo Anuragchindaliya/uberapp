@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { RootStackParamList, useNav } from "../../navigation";
 import { AntDesign } from "@expo/vector-icons";
@@ -14,6 +14,8 @@ import { FontAwesome } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 import DishRow from "../components/DishRow";
 import BasketIcon from "../components/BasketIcon";
+import { useAppDispatch } from "../app/hook";
+import { setRestaurantName } from "../features/featuredRow/basketSlice";
 
 const RestaurantScreen = () => {
   const {
@@ -29,11 +31,14 @@ const RestaurantScreen = () => {
     },
   } = useRoute<RouteProp<RootStackParamList, "RestaurantScreen">>();
   const navigation = useNav();
-
+  const dispatch = useAppDispatch();
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
+  }, []);
+  useEffect(() => {
+    dispatch(setRestaurantName(title));
   }, []);
   return (
     <>

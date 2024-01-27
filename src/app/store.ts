@@ -1,12 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { serpApi } from "./services";
+import { jsearchApi, serpApi } from "./services";
 import rootReducer from "../features";
 
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(serpApi.middleware);
+    return getDefaultMiddleware().concat(
+      serpApi.middleware,
+      jsearchApi.middleware
+    );
   },
 });
 

@@ -1,4 +1,10 @@
-import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { Provider } from "react-redux";
 import store from "./src/app/store";
 import HomeScreen from "./src/screen/HomeScreen";
@@ -11,7 +17,12 @@ import EatsScreen from "./src/screen/EatsScreen";
 import RestaurantScreen from "./src/screen/RestaurantScreen";
 import { RootStackParamList } from "./navigation";
 import BasketScreen from "./src/screen/BasketScreen";
-
+import PrepareOrderScreen from "./src/screen/PrepareOrderScreen";
+import DeliveryScreen from "./src/screen/DeliveryScreen";
+import JobHomeScreen from "./src/screen/JobHomeScreen";
+import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+import JobDetailsScreen from "./src/screen/JobDetailsScreen";
 const Stack = createStackNavigator<RootStackParamList>();
 export default function App() {
   return (
@@ -51,6 +62,54 @@ export default function App() {
                   presentation: "modal",
                   headerShown: false,
                 }}
+              />
+              <Stack.Screen
+                name="PrepareOrderScreen"
+                component={PrepareOrderScreen}
+                options={{
+                  presentation: "modal",
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="DeliveryScreen"
+                component={DeliveryScreen}
+                options={{
+                  presentation: "modal",
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="JobDetailsScreen"
+                component={JobDetailsScreen}
+                // options={{
+                //   presentation: "modal",
+                //   headerShown: false,
+                // }}
+              />
+              <Stack.Screen
+                name="JobHomeScreen"
+                component={JobHomeScreen}
+                options={{
+                  headerStyle: {
+                    backgroundColor: "#eaeaea",
+                  },
+                  headerShadowVisible: false,
+                  headerLeft: () => (
+                    <TouchableOpacity className="p-2">
+                      <MaterialIcons name="menu" size={24} color="black" />
+                    </TouchableOpacity>
+                  ),
+                  headerRight: () => (
+                    <TouchableOpacity className="p-2 pr-4">
+                      <FontAwesome name="user-circle" size={24} color="black" />
+                    </TouchableOpacity>
+                  ),
+                  headerTitle: "",
+                }}
+                // options={{
+                //   headerShown: false,
+                // }}
               />
             </Stack.Navigator>
           </KeyboardAvoidingView>

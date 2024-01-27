@@ -7,6 +7,11 @@ export type RootStackParamList = {
   EatsScreen: undefined;
   RestaurantScreen: RestaurantCardType;
   BasketScreen: undefined;
+  PrepareOrderScreen: undefined;
+  DeliveryScreen: undefined;
+
+  JobHomeScreen: undefined;
+  JobDetailsScreen: undefined;
 };
 export type ScreenNames = ["HomeScreen", "MapScreen"]; // type these manually
 // export type RootStackParamList = Record<ScreenNames[number], undefined>;

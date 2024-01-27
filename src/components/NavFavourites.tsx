@@ -11,7 +11,7 @@ const navFav = [
   },
   {
     id: "2",
-    location: "Home",
+    location: "Homes",
     icon: "briefcase",
     destination: "Gurgaon, India",
   },

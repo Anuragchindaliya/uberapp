@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 const initialState = {
+  restaurantName: "",
   items: [],
 };
 
@@ -20,11 +21,17 @@ const basketSlice = createSlice({
         console.warn("Can't remove product id ", action);
       }
     },
+    setRestaurantName: (state, action) => {
+      state.restaurantName = action.payload;
+    },
   },
 });
 
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket, setRestaurantName } =
+  basketSlice.actions;
 export const selectBasketItem = (state: RootState) => state.basket.items;
+export const selectRestauranName = (state: RootState) =>
+  state.basket.restaurantName;
 
 export const selectBasketItemWithId = (state: RootState, id: number) =>
   state.basket.items.filter((item) => item.id === id);
